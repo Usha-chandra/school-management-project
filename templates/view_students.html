@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Students</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='view_students.css') }}">
+</head>
+
+<body>
+
+    <!-- ===========================
+         Page Heading
+    ============================ -->
+
+    <h1>School Management System</h1>
+    <h2>Student Management</h2>
+
+    <!-- ===========================
+         Search Section
+    ============================ -->
+
+    <div class="container">
+
+        <h3>Search Students</h3>
+
+        <form action="/view_students" method="POST">
+
+            <div class="search-box">
+
+                <label for="name">Student Name</label>
+                <input type="text"
+                       id="name"
+                       name="student_name">
+
+            </div>
+
+            <div class="search-box">
+
+                <label for="grade">Grade</label>
+                <input type="text"
+                       id="grade"
+                       name="grade">
+
+            </div>
+
+            <div class="button-section">
+
+                <input type="submit"
+                       value="Search"
+                       class="button">
+
+                <a href="/view_students"
+                   class="button show-button">
+                   Show All Students
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- ===========================
+         Messages
+    ============================ -->
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    {% if message1 %}
+        <p class="message">{{ message1 }}</p>
+    {% endif %}
+
+    <!-- ===========================
+         Student Table
+    ============================ -->
+
+    <div class="table-container">
+
+        <h3>Student List</h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Grade</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for student in students %}
+
+                <tr>
+
+                    <td>{{ student[0] }}</td>
+                    <td>{{ student[1] }}</td>
+                    <td>{{ student[2] }}</td>
+                    <td>{{ student[3] }}</td>
+                    <td>{{ student[4] }}</td>
+                    <td>{{ student[5] }}</td>
+                    <td>{{ student[6] }}</td>
+                    <td>{{ student[7] }}</td>
+
+                    <td>
+
+                        <a href="/edit_student/{{ student[0] }}"
+                           class="edit-btn">
+                           Edit
+                        </a>
+
+                        <a href="/delete_student/{{ student[0] }}"
+                           class="delete-btn">
+                           Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- ===========================
+         Navigation
+    ============================ -->
+
+    <div class="navigation">
+
+        <a href="/admin_dashboard"
+           class="button">
+           Dashboard
+        </a>
+
+        <a href="/add_student"
+           class="button">
+           Add Student
+        </a>
+
+        <a href="/logout"
+           class="button logout">
+           Logout
+        </a>
+
+    </div>
+
+</body>
+
+</html>

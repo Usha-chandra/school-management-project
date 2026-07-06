@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<a href="/register">Add Account</a>
+<h2>Login</h2>
+
+<form action="/login" method="POST">
+
+    <label for="user_name">User Name:</label>
+    <input type="text" id="user_name" name="user_name" required>
+    <br><br>
+
+    <label for="user_password">Password:</label>
+    <input type="password" id="user_password" name="user_password" required>
+    <br><br>
+
+    <input type="submit" value="Login">
+    {% if error %}
+        <p>{{error}}</p>
+    {% endif %}
+
+</form>
+
+</body>
+</html>

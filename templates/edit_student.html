@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <body><form method="POST" action="{{ url_for('edit_student', id=student[0]) }}">
+            
+            <label for="name">Student Name:</label>
+            <input type="text" id="name" name="student_name" value="{{ student[1] }}" required><br><br>
+            
+            <label for="DOB">Date of Birth:</label>
+            <input type="date" id="DOB" name="DOB" value="{{ student[2] }}" required><br><br>
+            
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade" value="{{ student[3] }}" required><br><br>
+
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="Male" {% if student[4] == 'Male' %}checked{% endif %} required>
+            <input type="radio" id="female" name="gender" value="Female" {% if student[4] == 'Female' %}checked{% endif %} required>
+            <input type="radio" id="other" name="gender" value="Other" {% if student[4] == 'Other' %}checked{% endif %} required><br><br>
+ 
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ student[5] }}"><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" value="{{ student[6] }}" required><br><br>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required>{{ student[7] }}</textarea><br><br>
+            
+            <input type="submit" value="Update">
+        </form>
+        
+
+            </form>
+        </body>
+    </head>
+</html>

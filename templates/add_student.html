@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='add_student.css') }}">
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>Student Registration</h1>
+    <p class="subtitle">
+        Fill in the student details below.
+    </p>
+
+    <!-- Flask Validation Errors -->
+    {% if errors %}
+    <div class="error-box">
+        <ul>
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if error_message %}
+    <div class="error-box">
+        {{ error_message }}
+    </div>
+    {% endif %}
+
+    <form action="/add_student" method="POST">
+
+        <!-- Student Name -->
+
+        <div class="form-group">
+
+            <label for="name">
+                Student Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="student_name"
+                placeholder="Enter Student Name"
+                required
+                pattern="[A-Za-z ]+"
+                title="Student name should contain only letters and spaces">
+
+        </div>
+
+        <!-- DOB -->
+
+        <div class="form-group">
+
+            <label for="DOB">
+                Date of Birth
+            </label>
+
+            <input
+                type="date"
+                id="DOB"
+                name="DOB"
+                required>
+
+        </div>
+
+        <!-- Grade -->
+
+        <div class="form-group">
+
+            <label for="grade">
+                Grade
+            </label>
+
+            <select
+                id="grade"
+                name="grade"
+                required>
+
+                <option>Select Grade</option>
+
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+
+            </select>
+
+        </div>
+
+        <!-- Gender -->
+
+        <div class="form-group">
+
+            <label>
+                Gender
+            </label>
+
+            <div class="radio-group">
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="Male"
+                        required>
+
+                    Male
+
+                </label>
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="Female"
+                        required>
+
+                    Female
+
+                </label>
+
+                <label>
+
+                    <input
+                        type="radio"
+                        name="gender"
+                        value="Other"
+                        required>
+
+                    Other
+
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- Email -->
+
+        <div class="form-group">
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@gmail.com">
+
+        </div>
+
+        <!-- Phone -->
+
+        <div class="form-group">
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="9876543210"
+                required
+                pattern="[0-9]{10}"
+                title="Phone number should contain exactly 10 digits">
+
+        </div>
+
+        <!-- Address -->
+
+        <div class="form-group">
+
+            <label for="address">
+                Address
+            </label>
+
+            <textarea
+                id="address"
+                name="address"
+                rows="4"
+                placeholder="Enter Student Address"
+                required></textarea>
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="button-group">
+
+            <input
+                type="submit"
+                value="Register Student"
+                class="btn">
+
+            <a href="{{ url_for('view_students') }}"
+               class="btn secondary-btn">
+
+                View Students
+
+            </a>
+
+            <a href="{{ url_for('admin_dashboard') }}"
+               class="btn secondary-btn">
+
+                Dashboard
+
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

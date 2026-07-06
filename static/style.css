@@ -1,0 +1,312 @@
+/* =====================================================
+   SCHOOL MANAGEMENT SYSTEM
+   ADMIN DASHBOARD
+   Author  : Usha
+   Purpose : Styling the Admin Dashboard
+===================================================== */
+
+
+/* =====================================================
+   1. WHOLE PAGE
+===================================================== */
+
+body{
+
+    /* Background color of the entire webpage */
+    background-color:#f4f6f9;
+
+    /* Font for the complete page */
+    font-family:Arial, sans-serif;
+
+    /* Removes browser default outside space */
+    margin:0;
+
+    /* Adds space INSIDE the page.
+       Without padding, everything starts touching
+       the browser edges. */
+    padding:30px;
+}
+
+
+/* =====================================================
+   2. MAIN HEADING
+===================================================== */
+
+h1{
+
+    /* Align heading in the center */
+    text-align:center;
+
+    /* Dark blue text color */
+    color:#2c3e50;
+
+    /* Space below heading */
+    margin-bottom:10px;
+}
+
+
+/* =====================================================
+   3. SUB HEADING
+===================================================== */
+
+h2{
+
+    /* Center heading */
+    text-align:center;
+
+    color:#34495e;
+}
+
+
+/* =====================================================
+   4. DASHBOARD CONTAINER
+
+   Container means:
+   One large box that holds all cards.
+
+   +----------------------------------------+
+
+       Card      Card      Card
+
+   +----------------------------------------+
+===================================================== */
+
+.dashboard-container{
+
+    /* Arrange cards in one row */
+    display:flex;
+
+    /* Equal space between cards */
+    justify-content:space-around;
+
+    /* Move cards to next line
+       if screen becomes small */
+    flex-wrap:wrap;
+
+    /* Space above cards */
+    margin-top:30px;
+
+    /* Space between each card */
+    gap:20px;
+}
+
+
+/* =====================================================
+   5. CARD
+
+   One small box inside dashboard container.
+
+   Example:
+
+   -------------------------
+   Total Students
+
+         120
+   -------------------------
+===================================================== */
+
+.card{
+
+    /* Card background */
+    background:white;
+
+    /* Width of each card */
+    width:300px;
+
+    /* Space INSIDE card
+
+       Without padding
+
+       -------------------
+       Total Students
+       -------------------
+
+       With padding
+
+       -------------------
+          Total Students
+       -------------------
+    */
+    padding:20px;
+
+    /* Rounded corners */
+    border-radius:12px;
+
+    /* Shadow around card
+
+       x-axis
+          y-axis
+             blur
+                  color
+    */
+    box-shadow:0px 3px 10px rgba(0,0,0,0.2);
+}
+
+
+/* =====================================================
+   CARD HEADING
+===================================================== */
+
+.card h3{
+
+    text-align:center;
+
+    color:#2c3e50;
+}
+
+
+/* =====================================================
+   CARD CONTENT
+===================================================== */
+
+.card p{
+
+    font-size:18px;
+
+    margin:10px 0;
+}
+
+
+/* =====================================================
+   TOTAL STUDENT NUMBER
+
+   Example
+
+       120
+
+   Bigger than normal text.
+===================================================== */
+
+.count{
+
+    font-size:40px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    color:#2980b9;
+}
+
+
+/* =====================================================
+   STUDENT MANAGEMENT SECTION
+===================================================== */
+
+.management-section{
+
+    margin-top:40px;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   BUTTON CONTAINER
+
+   Holds
+
+   Add Student
+
+   View Student
+
+   Logout
+===================================================== */
+
+.button-container{
+
+    margin-top:20px;
+}
+
+
+/* =====================================================
+   BUTTON DESIGN
+===================================================== */
+
+.button{
+
+    /* Makes <a> behave like a button */
+    display:inline-block;
+
+    /* Removes underline from link */
+    text-decoration:none;
+
+    /* Button background */
+    background:#3498db;
+
+    /* Button text color */
+    color:white;
+
+    /* Space INSIDE button
+
+       First value
+
+           Top & Bottom
+
+       Second value
+
+           Left & Right
+    */
+    padding:12px 25px;
+
+    /* Space OUTSIDE button
+
+       Prevents buttons touching each other
+    */
+    margin:10px;
+
+    /* Rounded button corners */
+    border-radius:8px;
+
+    /* Bold text */
+    font-weight:bold;
+
+    /* Smooth color change
+
+       Without transition
+
+       Blue ---> Dark Blue
+
+       Immediate change
+
+       With transition
+
+       Blue -------> Dark Blue
+
+       Smooth animation
+    */
+    transition:0.3s;
+}
+
+
+/* =====================================================
+   MOUSE HOVER
+
+   Executes only when mouse
+   moves over button.
+===================================================== */
+
+.button:hover{
+
+    background:#21618c;
+}
+
+
+/* =====================================================
+   LOGOUT BUTTON
+===================================================== */
+
+.logout{
+
+    background:#e74c3c;
+}
+
+
+/* =====================================================
+   LOGOUT BUTTON HOVER
+===================================================== */
+
+.logout:hover{
+
+    background:#c0392b;
+}

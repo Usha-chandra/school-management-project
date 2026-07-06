@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+
+    <!-- Link CSS file -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- ===========================
+         Dashboard Heading
+    ============================ -->
+
+    <h1>School Management System</h1>
+    <h2>Admin Dashboard</h2>
+
+    <!-- ===========================
+         Statistics Section
+    ============================ -->
+
+    <div class="dashboard-container">
+
+        <!-- Total Students Card -->
+        <div class="card">
+            <h3>Total Students</h3>
+            <p class="count">{{ total_students }}</p>
+        </div>
+
+        <!-- Gender-wise Card -->
+        <div class="card">
+            <h3>Gender-wise Students</h3>
+
+            {% for gender, count in gender_counts %}
+                <p>{{ gender }} : {{ count }}</p>
+            {% endfor %}
+
+        </div>
+
+        <!-- Grade-wise Card -->
+        <div class="card">
+            <h3>Grade-wise Students</h3>
+
+            {% for grade, count in grade_counts %}
+                <p>Grade {{ grade }} : {{ count }}</p>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- ===========================
+         Student Management
+    ============================ -->
+
+    <div class="management-section">
+
+        <h2>Student Management</h2>
+
+        <div class="button-container">
+
+            <a href="{{ url_for('add_student') }}"
+               class="button">
+               Add Student
+            </a>
+
+            <a href="{{ url_for('view_students') }}"
+               class="button">
+               View Students
+            </a>
+
+            <a href="{{ url_for('logout') }}"
+               class="button logout">
+               Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

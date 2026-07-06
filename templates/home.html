@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>School & Employee Management System</title>
+        <!-- <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                background-color: white;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+            h1 {
+                color: #333;
+                text-align: center;
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+            .subtitle {
+                text-align: center;
+                color: #666;
+                font-size: 18px;
+                margin-bottom: 40px;
+                font-weight: italic;
+            }
+            .section {
+                margin-bottom: 40px;
+            }
+            .section h2 {
+                color: #667eea;
+                border-bottom: 3px solid #667eea;
+                padding-bottom: 10px;
+                font-size: 20px;
+            }
+            .nav-links {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            a {
+                display: inline-block;
+                padding: 12px 20px;
+                background-color: #667eea;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 16px;
+                transition: background-color 0.3s;
+            }
+            a:hover {
+                background-color: #764ba2;
+            }
+            .student-links a {
+                background-color: #4CAF50;
+            }
+            .student-links a:hover {
+                background-color: #45a049;
+            }
+            .employee-links a {
+                background-color: #ff9800;
+            }
+            .employee-links a:hover {
+                background-color: #e68900;
+            }
+        </style> -->
+    </head>
+    <body>
+        <h2>Welcome, {{ session['user_name'] }}</h2>
+        
+        <div class="container">
+            <!-- <h1>🎓 ಶಾಲಾ ಮತ್ತು ಕರ್ಮಚಾರಿ ವ್ಯವಸ್ಥಾಪನ ಪ್ರೋಗ್ರಾಮ</h1>
+            <h1>School & Employee Management System</h1>
+            <p class="subtitle">Kannada Coding Project - ಕನ್ನಡ ಕೋಡಿಂಗ್ ಯೋಜನೆ</p>
+             -->
+            <div class="section">
+                <h2>📚 ವಿದ್ಯಾರ್ಥಿ ಸೂಚನೆ | Student Management</h2>
+                <div class="nav-links student-links">
+                    <a href="/add_student">+ ವಿದ್ಯಾರ್ಥಿ ಸೇರಿಸು | Add Student</a>
+                    <a href="/view_students">👁️ ವಿದ್ಯಾರ್ಥಿ ನೋಡಿ | View Students</a>
+                </div>
+            </div>
+            
+            <!-- <div class="section">
+                <h2>👥 ಕರ್ಮಚಾರಿ ವ್ಯವಸ್ಥಾಪನ | Employee Management</h2>
+                <div class="nav-links employee-links">
+                    <a href="/add_employee">+ ಕರ್ಮಚಾರಿ ಸೇರಿಸು | Add Employee</a>
+                    <a href="/view_employees">👁️ ಕರ್ಮಚಾರಿ ನೋಡಿ | View Employees</a>
+                </div>
+            </div> -->
+        </div>
+        <a href ="/logout">Logout</a> 
+    </body>
+</html>
