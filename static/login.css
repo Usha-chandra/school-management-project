@@ -179,3 +179,23 @@ input[type=password]:focus{
 
     text-decoration:underline;
 }
+/* ---------- Success Message ---------- */
+
+.success{
+
+    color:green;
+
+    background:#e8f5e9;
+
+    border:1px solid #81c784;
+
+    padding:12px;
+
+    margin-top:20px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    font-weight:bold;
+}

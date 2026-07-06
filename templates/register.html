@@ -1,30 +1,68 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-    <title>Login</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>School Management System - Registration</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
 </head>
+
 <body>
 
+<div class="login-container">
 
-<h2>Registration</h2>
+    <div class="login-box">
 
-<form action="/register" method="POST">
+        <h1>School Management System</h1>
+        <h3>Create New Account</h3>
 
-    <label for="user_name">User Name:</label>
-    <input type="text" id="user_name" name="user_name" required>
-    <br><br>
+        <form action="/register" method="POST">
 
-    <label for="user_password">Password:</label>
-    <input type="password" id="user_password" name="user_password" required>
-    <br><br>
+            <label for="user_name">Username</label>
 
-    <input type="submit" value="Register">
-    <a href="/login">Login</a>
+            <input
+                type="text"
+                id="user_name"
+                name="user_name"
+                placeholder="Enter Username"
+                required>
 
-</form>
-{% if success %}
-    <p>User {{ user_name }} registered successfully!</p>
-{% endif %}
+            <label for="user_password">Password</label>
+
+            <input
+                type="password"
+                id="user_password"
+                name="user_password"
+                placeholder="Enter Password"
+                required>
+
+            <input
+                type="submit"
+                value="Register"
+                class="login-btn">
+
+        </form>
+
+        {% if success %}
+            <p class="success">
+                User <strong>{{ user_name }}</strong> registered successfully!
+            </p>
+        {% endif %}
+
+        <div class="register-link">
+            Already have an account?
+            <a href="/login">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
 </body>
+
 </html>
