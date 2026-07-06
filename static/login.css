@@ -1,0 +1,181 @@
+/* ---------- Page ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#4facfe,#00c6fb);
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/* ---------- Login Box ---------- */
+
+.login-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.login-box{
+
+    background:white;
+
+    width:380px;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+
+}
+
+/* ---------- Headings ---------- */
+
+.login-box h1{
+
+    text-align:center;
+
+    color:#0f172a;
+
+    margin-bottom:10px;
+
+    font-size:28px;
+}
+
+.login-box h3{
+
+    text-align:center;
+
+    color:#555;
+
+    margin-bottom:30px;
+
+    font-weight:normal;
+}
+
+/* ---------- Labels ---------- */
+
+label{
+
+    display:block;
+
+    margin-top:15px;
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+    color:#333;
+}
+
+/* ---------- Text Boxes ---------- */
+
+input[type=text],
+input[type=password]{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+input[type=text]:focus,
+input[type=password]:focus{
+
+    border-color:#2196f3;
+
+    outline:none;
+
+    box-shadow:0 0 5px #90caf9;
+}
+
+/* ---------- Button ---------- */
+
+.login-btn{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#1976d2;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.login-btn:hover{
+
+    background:#0d47a1;
+}
+
+/* ---------- Error ---------- */
+
+.error{
+
+    color:red;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    font-weight:bold;
+}
+
+/* ---------- Register ---------- */
+
+.register-link{
+
+    text-align:center;
+
+    margin-top:25px;
+}
+
+.register-link a{
+
+    color:#1976d2;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.register-link a:hover{
+
+    text-decoration:underline;
+}

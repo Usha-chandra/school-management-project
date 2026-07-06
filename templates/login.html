@@ -1,30 +1,54 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System - Login</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
 <body>
 
-<a href="/register">Add Account</a>
-<h2>Login</h2>
+<div class="login-container">
 
-<form action="/login" method="POST">
+    <div class="login-box">
 
-    <label for="user_name">User Name:</label>
-    <input type="text" id="user_name" name="user_name" required>
-    <br><br>
+        <h1>School Management System</h1>
+        <h3>Login</h3>
 
-    <label for="user_password">Password:</label>
-    <input type="password" id="user_password" name="user_password" required>
-    <br><br>
+        <form action="/login" method="POST">
 
-    <input type="submit" value="Login">
-    {% if error %}
-        <p>{{error}}</p>
-    {% endif %}
+            <label for="user_name">Username</label>
+            <input
+                type="text"
+                id="user_name"
+                name="user_name"
+                placeholder="Enter Username"
+                required>
 
-</form>
+            <label for="user_password">Password</label>
+            <input
+                type="password"
+                id="user_password"
+                name="user_password"
+                placeholder="Enter Password"
+                required>
+
+            <input type="submit" value="Login" class="login-btn">
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+        </form>
+
+        <div class="register-link">
+            <a href="/register">Create New Account</a>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
