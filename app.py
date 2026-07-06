@@ -1,6 +1,7 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask,session, redirect,url_for, render_template,request
 import sqlite3
+from db_connection import get_connection
 from datetime import datetime 
 app = Flask(__name__)
 # Secret key is required for sessions
@@ -79,7 +80,7 @@ def add_student():
 # except EmailNotValidError:
 #     message6 = "Please enter a valid email address"
 #     return render_template("add_student.html", message6=message6)
-        conn = sqlite3.connect("F:/Usha Projects/SchoolManagementProject/student_web_app/students.db")
+        conn = get_connection()
         cursor = conn.cursor()
         # cursor.execute('''INSERT INTO students (student_name, dob, grade, gender, email, phone_number, address) VALUES (?, ?, ?, ?, ?, ?, ?)''', (student_name, DOB, grade, gender, email, phone_number, address))
         # cursor.execute("SELECT * FROM students")
@@ -121,7 +122,7 @@ def add_student():
 def view_students():
     if "user_name" not in session:
         return redirect("/login")
-    conn = sqlite3.connect("F:/Usha Projects/SchoolManagementProject/student_web_app/students.db")
+    conn = get_connection()
     cursor = conn.cursor()
     if request.method == "POST":
         student_name = request.form["student_name"]
@@ -150,7 +151,7 @@ def view_students():
     return render_template("view_students.html", students=students)
 @app.route("/edit_student/<int:id>" , methods=["GET", "POST"])
 def edit_student(id):
-    conn = sqlite3.connect("F:/Usha Projects/SchoolManagementProject/student_web_app/students.db")
+    conn = get_connection()
     cursor = conn.cursor()
     if request.method == "POST":
         student_name = request.form["student_name"]
@@ -171,7 +172,7 @@ def edit_student(id):
         return render_template("edit_student.html", student=student)
 @app.route("/delete_student/<int:id>")
 def delete_student(id):
-    conn = sqlite3.connect("F:/Usha Projects/SchoolManagementProject/student_web_app/students.db")
+    conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("DELETE FROM students WHERE id=?", (id,))
     conn.commit()
@@ -184,8 +185,7 @@ def register():
         user_name=request.form["user_name"]
         user_password=request.form["user_password"]
         hashed_password=generate_password_hash(user_password)
-    
-        conn = sqlite3.connect("F:/Usha Projects/SchoolManagementProject/student_web_app/students.db")
+        conn = get_connection()
         cursor = conn.cursor()
         cursor.execute('''INSERT INTO users(user_name,user_password,role) values(?,?,?)''',(user_name,hashed_password,"user"))
         conn.commit()
@@ -197,7 +197,7 @@ def login():
     if request.method == "POST":
         user_name=request.form["user_name"]
         user_password=request.form["user_password"]
-        conn = sqlite3.connect("F:/Usha Projects/SchoolManagementProject/student_web_app/students.db")
+        conn = get_connection()
         cursor = conn.cursor()
         cursor.execute("SELECT user_password, role from users WHERE user_name = ?",(user_name,))
         row = cursor.fetchone()
@@ -226,7 +226,7 @@ def logout():
     return redirect("/login")    
 @app.route("/admin_dashboard")
 def admin_dashboard():
-        conn = sqlite3.connect("F:/Usha Projects/SchoolManagementProject/student_web_app/students.db")
+        conn = get_connection()
         cursor = conn.cursor()
         cursor.execute('''SELECT COUNT(*) from students''')
         total_students=cursor.fetchone()[0]
